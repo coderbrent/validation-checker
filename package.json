@@ -1,0 +1,8 @@
+{
+  "name": "validation-checker",
+  "version": "1.0.0",
+  "description": "simple input validation with regex",
+  "main": "index.js",
+  "author": "@brenta1283",
+  "license": "MIT"
+}
