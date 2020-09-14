@@ -1,26 +1,20 @@
 /**
- * @desc checks the provided form field for proper formatting based on input type.
+ * @desc checks the provided form field against a regexp to determine proper formatting based on input type.
  * @param {String} fieldType is the type of field to check formatting for, ex. html5 input types "email", "name", "tel".
  * @param {String} input is the user provided text input.
  * @return boolean - true if field passes regex test & !empty, otherwise false.
  */
 
 export const formatChecker = (fieldType, input) => {
-    // regex patterns - easily extensible for other form input types!
-    const isEmail = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,4}))$/;
-    const isPhone = /^(?:(?:\+?1\s*(?:[.-]\s*)?)?(?:\(\s*([2-9]1[02-9]|[2-9][02-8]1|[2-9][02-8][02-9])\s*\)|([2-9]1[02-9]|[2-9][02-8]1|[2-9][02-8][02-9]))\s*(?:[.-]\s*)?)?([2-9]1[02-9]|[2-9][02-9]1|[2-9][02-9]{2})\s*(?:[.-]\s*)?([0-9]{4})(?:\s*(?:#|x\.?|ext\.?|extension)\s*(\d+))?$/;
-    const isName = /^[\w'\-,.][^0-9_!¡?÷?¿/\\+=@#$%ˆ&*(){}|~<>;:[\]]{1,}$/;
-  
-    switch(fieldType) {
-      case 'name': {
-        return input !== '' && isName.test(input) ? true : false;
-      }
-      case 'email': {
-        return input !== '' && isEmail.test(input) ? true : false;
-      }
-      case 'tel': { 
-        return input !== '' && isPhone.test(input) ? true : false;
-      }
-      default: return input;
-    }
+  // regex patterns - easily extensible for other form input types!
+  const isEmail = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,4}))$/;
+  const isPhone = /^(?:(?:\+?1\s*(?:[.-]\s*)?)?(?:\(\s*([2-9]1[02-9]|[2-9][02-8]1|[2-9][02-8][02-9])\s*\)|([2-9]1[02-9]|[2-9][02-8]1|[2-9][02-8][02-9]))\s*(?:[.-]\s*)?)?([2-9]1[02-9]|[2-9][02-9]1|[2-9][02-9]{2})\s*(?:[.-]\s*)?([0-9]{4})(?:\s*(?:#|x\.?|ext\.?|extension)\s*(\d+))?$/;
+  const isName = /^[\w'\-,.][^0-9_!¡?÷?¿/\\+=@#$%ˆ&*(){}|~<>;:[\]]{1,}$/;
+
+  switch(fieldType) {
+    case 'name': return input !== '' && isName.test(input);
+    case 'email': return input !== '' && isEmail.test(input);
+    case 'tel': return input !== '' && isPhone.test(input);
+    default: return input;
   }
+}

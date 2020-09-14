@@ -5,7 +5,8 @@ A simple javascript input validation utility function that takes a field type (s
 Down the 🛣️:
 
 - Add additional field types.
-- I plan to add Jest in the future to beef up against edge cases when adding additional inputTypes with some nice unit testing.
+- Throw the regex patterns into an env file to keep them out of the way.
+- Maybe add Jest in the future to beef up against edge cases when adding additional inputTypes with some nice unit testing.
 
 
 Special thanks and credit to Andrew Woods and this awesomely helpful blog post he wrote here -> <a href="https://andrewwoods.net/blog/2018/name-validation-regex/">his blog</a> for the regex name pattern I used for this script!
